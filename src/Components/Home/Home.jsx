@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchApiData, options } from "../../Redux/Features/ExerciseSlice";
+import HorizontalScrollbar from "../Horizontal Scrollbar/HorizontalScrollbar";
 
 function Home() {
   const EXERCISES_API_LINK = "https://exercisedb.p.rapidapi.com/exercises";
@@ -14,21 +15,21 @@ function Home() {
 
   const handleSearch = () => {
     if (search) {
-      dispatch(fetchApiData(EXERCISES_API_LINK, options));
+      // dispatch(fetchApiData(EXERCISES_API_LINK, options));
 
-      let filteredData = exerciseArr.filter(exercise => 
-        exercise.name.toLowerCase().includes(search) ||
+      let filteredData = exerciseArr.filter(
+        (exercise) =>
+          exercise.name.toLowerCase().includes(search) ||
           exercise.target.toLowerCase().includes(search) ||
           exercise.equipment.toLowerCase().includes(search) ||
           exercise.bodyPart.toLowerCase().includes(search)
       );
       setExerices(filteredData);
-      console.log(filteredData);
+      // console.log(filteredData);
+      setSearch("");
       return filteredData;
     }
   };
-  console.log(exercises);
-  console.log(search);
 
   return (
     <section>
@@ -69,6 +70,9 @@ function Home() {
           Search
         </button>
       </div>
+
+      <div className="categories"><HorizontalScrollbar/> </div>
+      
     </section>
   );
 }

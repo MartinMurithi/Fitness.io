@@ -100,3 +100,9 @@
   cursor: pointer;
   font-size: 1.1rem;
 }
+
+.categories{
+  display: flex;
+  gap: 100px;
+  margin: 100px 30px;
+}
