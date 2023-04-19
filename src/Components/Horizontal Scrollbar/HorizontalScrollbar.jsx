@@ -1,47 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchBodyPartsList,
-  options,
-} from "../../Redux/Features/ExerciseSlice";
 import "./HorizontalScrollbar.css";
+import { options } from "../../Utils/Options";
+import axios from "axios";
 
 function HorizontalScrollbar() {
   const BODY_PARTS_LIST_API =
     "https://exercisedb.p.rapidapi.com/exercises/bodyPartList";
 
-  const [category, setCategory] = useState([]);
-  const data = useSelector((state) => state.exercise.bodyPartsList);
-  const dispatch = useDispatch();
-
+  const [category, setCategory] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  
   useEffect(() => {
-    dispatch(fetchBodyPartsList(BODY_PARTS_LIST_API, options));
-    setCategory(data);
-
+  //       const fetchData = async () => {
+  //         const response = await axios.get(BODY_PARTS_LIST_API, options);
+  //         const data = response.data;
+  //         setCategory(data);
+  // }
+  // fetchData()
+      
   }, []);
 
   console.log(category);
   return (
     <div className="categoryList">
-      {category && category.length > 0
-        ? category.map((category) => {
-            return (
-                <div className="categoryItem">
-                  <div className="imgCategory">
-                    <img
-                      src="/Assets/icons/gym.png"
-                      alt="gym icon"
-                      className="categoryImg"
-                    />
-                  </div>
-                  <div className="categoryNameDiv">
-                    <p className="categoryName">{category}</p>
-                  </div>
-                </div>
-    
-            );
-          })
-        : <h5>llllllllll</h5>}
+      {category && category.length > 0 ? (
+        category.map((category) => {
+          return (
+            <div className="categoryItem">
+              <div className="imgCategory">
+                <img
+                  src="/Assets/icons/gym.png"
+                  alt="gym icon"
+                  className="categoryImg"
+                />
+              </div>
+              <div className="categoryNameDiv">
+                <p className="categoryName">{category}</p>
+              </div>
+            </div>
+          );
+        })
+      ) : (
+        <h5>llllllllll</h5>
+      )}
     </div>
   );
 }

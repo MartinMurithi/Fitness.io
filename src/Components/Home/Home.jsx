@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchApiData, options } from "../../Redux/Features/ExerciseSlice";
+import axios from "axios";
+import { options } from "../../Utils/Options";
 import HorizontalScrollbar from "../Horizontal Scrollbar/HorizontalScrollbar";
 
 function Home() {
-  const EXERCISES_API_LINK = "https://exercisedb.p.rapidapi.com/exercises";
+  const EXERCISES_API = "https://exercisedb.p.rapidapi.com/exercises";
 
   const [exercises, setExerices] = useState([]);
   const [search, setSearch] = useState("");
 
-  const dispatch = useDispatch();
-  let exerciseArr = useSelector((state) => state.exercise.exerciseData);
-
   const handleSearch = () => {
     if (search) {
-      // dispatch(fetchApiData(EXERCISES_API_LINK, options));
-
-      let filteredData = exerciseArr.filter(
+      const fetchData = async () => {
+        const response = await axios.get(EXERCISES_API, options);
+        const data = response.data;
+        setExerices(data);
+        // console.log(exercises);
+      };
+      // fetchData();
+      let filteredData = exercises.filter(
         (exercise) =>
           exercise.name.toLowerCase().includes(search) ||
           exercise.target.toLowerCase().includes(search) ||
@@ -25,7 +27,7 @@ function Home() {
           exercise.bodyPart.toLowerCase().includes(search)
       );
       setExerices(filteredData);
-      // console.log(filteredData);
+      console.log(filteredData);
       setSearch("");
       return filteredData;
     }
@@ -71,8 +73,9 @@ function Home() {
         </button>
       </div>
 
-      <div className="categories"><HorizontalScrollbar/> </div>
-      
+      <div className="categories">
+        <HorizontalScrollbar />
+      </div>
     </section>
   );
 }
