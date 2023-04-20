@@ -8,7 +8,7 @@ function HorizontalScrollbar() {
   const BODY_PARTS_LIST_API =
     "https://exercisedb.p.rapidapi.com/exercises/bodyPartList";
 
-  const [category, setCategory] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  const [category, setCategory] = useState(["Back", "Cardio", "Chest", "Lower arms", "Lower legs", "Neck", "Shoulders", "Upper arms", "Upper legs", "Waist"]);
   
   useEffect(() => {
   //       const fetchData = async () => {

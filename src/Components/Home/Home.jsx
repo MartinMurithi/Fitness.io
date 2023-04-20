@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import axios from "axios";
-import { options } from "../../Utils/Options";
+import { exerciseOptions } from "../../Utils/Options";
 import HorizontalScrollbar from "../Horizontal Scrollbar/HorizontalScrollbar";
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
   const handleSearch = () => {
     if (search) {
       const fetchData = async () => {
-        const response = await axios.get(EXERCISES_API, options);
+        const response = await axios.get(EXERCISES_API, exerciseOptions);
         const data = response.data;
         setExerices(data);
         // console.log(exercises);

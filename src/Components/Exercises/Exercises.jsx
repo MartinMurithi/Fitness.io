@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./Exercises.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import { options } from "../../Utils/Options";
+import { exerciseOptions } from "../../Utils/Options";
 function Exercises() {
   const EXERCISES_API = "https://exercisedb.p.rapidapi.com/exercises";
   const [exercises, setExercises] = useState([]);
   useEffect(() => {
     // const fetchData = async () => {
-    //   const response = await axios.get(EXERCISES_API, options);
+    //   const response = await axios.get(EXERCISES_API, exerciseOptions);
     //   const data = response.data;
     //   setExercises(data);
     //   console.log(exercises);
