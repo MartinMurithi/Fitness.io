@@ -9,7 +9,8 @@ import ExerciseDetails from './Components/ExerciseDetails/ExerciseDetails';
 function App() {
   return (
     <div className="App">
-      <Nav/>
+      <Nav />
+      
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/exercises' element={<Exercises/>} />

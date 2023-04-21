@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./HorizontalScrollbar.css";
 import { options } from "../../Utils/Options";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function HorizontalScrollbar() {
   const BODY_PARTS_LIST_API =
@@ -37,7 +38,7 @@ function HorizontalScrollbar() {
               <div className="categoryNameDiv">
                 <p className="categoryName">{category}</p>
               </div>
-            </div>
+              </div>
           );
         })
       ) : (

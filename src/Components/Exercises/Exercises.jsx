@@ -3,22 +3,27 @@ import "./Exercises.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { exerciseOptions } from "../../Utils/Options";
+import { ThreeDots } from "react-loader-spinner";
 function Exercises() {
   const EXERCISES_API = "https://exercisedb.p.rapidapi.com/exercises";
   const [exercises, setExercises] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   useEffect(() => {
-    // const fetchData = async () => {
-    //   const response = await axios.get(EXERCISES_API, exerciseOptions);
-    //   const data = response.data;
-    //   setExercises(data);
-    //   console.log(exercises);
-    // };
-    // fetchData();
+    const fetchData = async () => {
+      const response = await axios.get(EXERCISES_API, exerciseOptions);
+      const data = response.data;
+      setExercises(data);
+      console.log(exercises);
+    };
+    fetchData();
   }, []);
   return (
     <div className="allExercisesSection">
-      <p className="allExercisesTitle">All Exercises</p>
+      {/* <p className="allExercisesTitle">All Exercises</p> */}
+
       <div className="exerciseCards">
+
         {exercises && exercises.length > 0
           ? exercises.map((exercise) => {
               return (
@@ -44,7 +49,8 @@ function Exercises() {
                 </Link>
               );
             })
-          : null}
+          : <ThreeDots
+            color='red'/>}
       </div>
     </div>
   );

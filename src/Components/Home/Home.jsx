@@ -3,9 +3,11 @@ import "./Home.css";
 import axios from "axios";
 import { exerciseOptions } from "../../Utils/Options";
 import HorizontalScrollbar from "../Horizontal Scrollbar/HorizontalScrollbar";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const EXERCISES_API = "https://exercisedb.p.rapidapi.com/exercises";
+  const navigate = useNavigate()
 
   const [exercises, setExerices] = useState([]);
   const [search, setSearch] = useState("");
@@ -44,7 +46,7 @@ function Home() {
           <p className="infoAd">
             Check out the most effective exercises personalized for you
           </p>
-          <button className="exploreExercisesBtn">Expolre Exercises</button>
+          <button className="exploreExercisesBtn" onClick={()=>{navigate('/exercises')}}>Expolre Exercises</button>
         </div>
         <div className="banner">
           <img src="/Assets/images/banner.png" alt="banner" />
