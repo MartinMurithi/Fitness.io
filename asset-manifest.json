@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Fitness.io/static/css/main.8b363e70.css",
+    "main.js": "/Fitness.io/static/js/main.715c1afb.js",
+    "static/js/787.99dbc188.chunk.js": "/Fitness.io/static/js/787.99dbc188.chunk.js",
+    "index.html": "/Fitness.io/index.html",
+    "main.8b363e70.css.map": "/Fitness.io/static/css/main.8b363e70.css.map",
+    "main.715c1afb.js.map": "/Fitness.io/static/js/main.715c1afb.js.map",
+    "787.99dbc188.chunk.js.map": "/Fitness.io/static/js/787.99dbc188.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b363e70.css",
+    "static/js/main.715c1afb.js"
+  ]
+}
