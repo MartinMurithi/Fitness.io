@@ -3,7 +3,7 @@ import "./Exercises.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { exerciseOptions } from "../../Utils/Options";
-import { ThreeDots } from "react-loader-spinner";
+import { Circles, ThreeCircles } from "react-loader-spinner";
 function Exercises() {
   const EXERCISES_API = "https://exercisedb.p.rapidapi.com/exercises";
   const [exercises, setExercises] = useState([]);
@@ -49,7 +49,7 @@ function Exercises() {
                 </Link>
               );
             })
-          : <ThreeDots
+          : <ThreeCircles
             color='red'/>}
       </div>
     </div>
