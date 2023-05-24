@@ -13,6 +13,7 @@ export const Nav = () => {
             width={"48px"}
             height={"48px"}
             className="imgLogo"
+            loading="lazy"
           />
         </div>
 

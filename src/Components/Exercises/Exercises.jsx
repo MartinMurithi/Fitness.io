@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Exercises.css";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { exerciseOptions } from "../../Utils/Options";
-import { Circles, ThreeCircles } from "react-loader-spinner";
+import { ThreeCircles } from "react-loader-spinner";
 function Exercises() {
   const EXERCISES_API = "https://exercisedb.p.rapidapi.com/exercises";
   const [exercises, setExercises] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +31,7 @@ function Exercises() {
                   className="allExercisesList"
                   key={exercise.id}
                 >
-                  <div className="allExerciseCardItem">
+                  <div className="allExerciseCardItem" key={exercise.id}>
                     <img
                       src={exercise.gifUrl}
                       alt={exercise.name}

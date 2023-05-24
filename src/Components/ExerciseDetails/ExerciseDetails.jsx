@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { exerciseOptions } from "../../Utils/Options";
-import { youtubeOptions } from "../../Utils/Options";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./ExerciseDetails.css";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import axios from "axios";
 import { exerciseOptions } from "../../Utils/Options";
@@ -12,28 +12,28 @@ function Home() {
   const [exercises, setExerices] = useState([]);
   const [search, setSearch] = useState("");
 
-  const handleSearch = () => {
-    if (search) {
-      const fetchData = async () => {
-        const response = await axios.get(EXERCISES_API, exerciseOptions);
-        const data = response.data;
-        setExerices(data);
-        // console.log(exercises);
-      };
-      // fetchData();
-      let filteredData = exercises.filter(
-        (exercise) =>
-          exercise.name.toLowerCase().includes(search) ||
-          exercise.target.toLowerCase().includes(search) ||
-          exercise.equipment.toLowerCase().includes(search) ||
-          exercise.bodyPart.toLowerCase().includes(search)
-      );
-      setExerices(filteredData);
-      console.log(filteredData);
-      setSearch("");
-      return filteredData;
-    }
-  };
+  // const handleSearch = () => {
+  //   if (search) {
+  //     const fetchData = async () => {
+  //       const response = await axios.get(EXERCISES_API, exerciseOptions);
+  //       const data = response.data;
+  //       setExerices(data);
+  //       // console.log(exercises);
+  //     };
+  //     // fetchData();
+  //     let filteredData = exercises.filter(
+  //       (exercise) =>
+  //         exercise.name.toLowerCase().includes(search) ||
+  //         exercise.target.toLowerCase().includes(search) ||
+  //         exercise.equipment.toLowerCase().includes(search) ||
+  //         exercise.bodyPart.toLowerCase().includes(search)
+  //     );
+  //     setExerices(filteredData);
+  //     console.log(filteredData);
+  //     setSearch("");
+  //     return filteredData;
+  //   }
+  // };
 
   return (
     <section>
@@ -70,7 +70,7 @@ function Home() {
             setSearch(e.target.value);
           }}
         />
-        <button className="searchExerciseBtn" onClick={handleSearch}>
+        <button className="searchExerciseBtn" >
           Search
         </button>
       </div>
